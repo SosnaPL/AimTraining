@@ -1,4 +1,8 @@
 # Simple game that helps you train your reflex.
+https://sosnapl.github.io/AimTraining/
+
+# Gameplay:
+Simply click the circles before they disappear :)
 
 # Settings:
 
