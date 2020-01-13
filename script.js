@@ -184,7 +184,7 @@ function Lost(obj)
                 last_hp_width = (100/start_hp_holder.options[start_hp_holder.selectedIndex].value) + last_hp_width;
                 //console.log(last_hp_width);
                 circle_number--;
-                osu();
+                loop();
             }
             else
             {
@@ -296,7 +296,7 @@ function hoverCircle(obj)
     obj.addEventListener('keypress', function (e) {
         if (e.key === 'z') 
         {
-            osu();
+            loop();
         }
     });
 }
@@ -309,7 +309,7 @@ function first()
     createCircle(first_circle);
     window.getComputedStyle(first_circle).opacity;
     first_circle.style.opacity = "1";
-    first_circle.addEventListener("click", osu);
+    first_circle.addEventListener("click", loop);
     //first_circle.addEventListener("mouseover", hoverCircle);
     Lost(first_circle);
 }
@@ -321,12 +321,12 @@ function nextCircle()
     createCircle(next_circle);
     window.getComputedStyle(next_circle).opacity;
     next_circle.style.opacity = "1";
-    next_circle.addEventListener("click", osu);
+    next_circle.addEventListener("click", loop);
     //next_circle.addEventListener("mouseover", hoverCircle);
     Lost(next_circle);
 }
 
-function osu()
+function loop()
 {
     countPoints();
     removeCircle();
