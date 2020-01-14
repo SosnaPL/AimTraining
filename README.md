@@ -17,5 +17,6 @@ Simply how many times u can miss until you lose.
 
 # Scoreboard:
 
-## Scoreboard will be changed in the future for now it saves your scores until you refresh the page!
+## ~~Scoreboard will be changed in the future for now it saves your scores until you refresh the page!~~
+## Scoreboard is now stored in cookies.
 Still in development
