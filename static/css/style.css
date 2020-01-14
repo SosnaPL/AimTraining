@@ -186,7 +186,7 @@ button:focus
 }
 .circle
 {
-    background-image: url(../imgs/circle.png);
+    background-image: url(./imgs/circle.png);
     border-radius: 50%;
     position: absolute;
     top: 50%;
