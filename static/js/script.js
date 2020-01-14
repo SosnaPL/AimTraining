@@ -153,7 +153,10 @@ function updateScoreboard()
         $.cookie('cookie', JSON.stringify(scoreboard_dic));
         //console.log("nie bylo");
     }
-    scoreboard_dic = JSON.parse($.cookie('cookie'));
+    if($.cookie('cookie') != undefined)
+    {
+        scoreboard_dic = JSON.parse($.cookie('cookie'));
+    }
 }
 
 function listScoreboard()
