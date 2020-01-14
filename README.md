@@ -7,13 +7,13 @@ Simply click the circles before they disappear :)
 # Settings:
 
 ## AR(Aproach rate)
-This setting responds for how fast circles would appear on the screen.
+This setting is responsible for how fast circles would appear on the screen.
 
 ## CS(Circle Size)
-This one responds for inverted circle size scaling.
+This one is responsible for inverted circle size scaling.
 
 ## HP(Health points)
-Simply how many times u can miss circles until you lose.
+Simply how many times u can miss until you lose.
 
 # Scoreboard:
 
