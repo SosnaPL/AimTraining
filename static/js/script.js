@@ -239,8 +239,8 @@ function createCircle(obj)
 function getRandomPosition(obj)
 {
     cs = settings("cs");
-    x = (cs/50)*5;
-    y = 100 - ((cs/50)*5);
+    x = (cs/50)*7;
+    y = 100 - ((cs/50)*7);
     //console.log(x + " " + y)
     margin_top = getRandomInt(x, y);
     margin_left = getRandomInt(x, y);
