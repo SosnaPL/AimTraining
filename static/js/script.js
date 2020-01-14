@@ -48,6 +48,8 @@ function onWebsiteLoad()
 }
 
 onWebsiteLoad();
+scoreboard();
+
 
 function fixDpi() 
 {
@@ -133,18 +135,25 @@ function updateScoreboard()
             if((circle_number-2) > scoreboard_dic[i][1])
             {
                 scoreboard_dic[i][1] = (circle_number-2);
+                $.cookie('cookie', JSON.stringify(scoreboard_dic));
                 //console.log("zastap nick");
                 return;
             }
             else
             {
                 //console.log("nie zastepuj");
+                $.cookie('cookie', JSON.stringify(scoreboard_dic));
                 return;
             }
         }
     }
-    scoreboard_dic.push([nick, (circle_number-2)])
-    //console.log("nie bylo");
+    if((circle_number-2) >= 0)
+    {
+        scoreboard_dic.push([nick, (circle_number-2)]);
+        $.cookie('cookie', JSON.stringify(scoreboard_dic));
+        //console.log("nie bylo");
+    }
+    scoreboard_dic = JSON.parse($.cookie('cookie'));
 }
 
 function listScoreboard()
