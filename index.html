@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AimTraining</title>
+    <link rel="stylesheet" href="static\style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="header_left hide"></div>
+        <div class="header_middle expand">
+            <div class="hp_number"></div>
+            <div class="hp"></div>
+        </div>
+        <div class="header_right hide"></div>
+    </div>
+    <div class="container">
+        <div class="settings hide">
+            <p>SETTINGS</p>
+            <div class="select_menu">
+                Nick: <input type="text" id="nick" value="Guest" size="15" spellcheck="false"/>
+            </div>
+            <div class="select_menu">
+                AR: <select id="ar">
+                        <option value="0.25">11</option>
+                        <option value="0.5">10</option>
+                        <option value="1" selected>9</option>
+                        <option value="1.5">8</option>
+                        <option value="2">7</option>
+                        <option value="2.5">6</option>
+                        <option value="3">5</option>
+                        <option value="3.5">4</option>
+                        <option value="4">3</option>
+                        <option value="4.5">2</option>
+                        <option value="5">1</option>
+                </select>
+            </div>
+            <div class="select_menu">
+                CS: <select id="cs">
+                        <option value="50">4</option>
+                        <option value="100" selected>3</option>
+                        <option value="150">2</option>
+                        <option value="200">1</option>
+                    </select>
+            </div>
+            <div class="select_menu">
+                HP: <select id="hp">
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1" selected>1</option>
+                    </select>
+            </div>
+        </div>
+        <div class="game expand">
+            <button onclick="first()" id="play">START</button>
+            <button onclick="hide()" id="hide">HIDE</button>
+            <canvas class="linia"></canvas>
+        </div>
+        <div class="scoreboard hide">
+            <p>SCOREBOARD</p>
+            <ul></ul>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer_left hide"></div>
+        <div class="footer_middle expand">
+            <div class="points">POINTS COUNTER: 0</div>
+        </div>
+        <div class="footer_right hide"></div>
+    </div>
+    <script src="static\script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
