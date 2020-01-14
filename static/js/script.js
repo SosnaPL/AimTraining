@@ -304,7 +304,7 @@ function hoverCircle(obj)
 function first()
 {
     gameReset();
-    game.style.cursor= "url(./imgs/cursor.png) 25 25, auto"
+    game.style.cursor= "url(static/imgs/cursor.png) 25 25, auto"
     first_circle = document.createElement("div");
     createCircle(first_circle);
     window.getComputedStyle(first_circle).opacity;
