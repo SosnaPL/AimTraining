@@ -47,7 +47,7 @@ body
     flex-direction: row;
     align-items: center;
 }
-.container
+.all_container
 {
     background-color: #0F0F0F;
     width: 100%;
@@ -58,6 +58,8 @@ body
     flex-direction: row;
     top: 0;
     left: 0;
+    margin: 0%;
+    padding: 0%;
 }
 .settings
 {
