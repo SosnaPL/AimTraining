@@ -6,7 +6,7 @@ Simply click the circles before they disappear :)
 
 # Settings:
 
-## AR(Aproach rate)
+## AR(Approach rate)
 This setting is responsible for how fast circles will appear on the screen.
 
 ## CS(Circle Size)
