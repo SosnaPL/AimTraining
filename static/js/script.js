@@ -135,14 +135,14 @@ function updateScoreboard()
             if((circle_number-2) > scoreboard_dic[i][1])
             {
                 scoreboard_dic[i][1] = (circle_number-2);
-                $.cookie('cookie', JSON.stringify(scoreboard_dic), { expires: 365, path: '/' });
+                localStorage.setItem("scoreboard", JSON.stringify(scoreboard_dic));
                 //console.log("zastap nick");
                 return;
             }
             else
             {
                 //console.log("nie zastepuj");
-                $.cookie('cookie', JSON.stringify(scoreboard_dic), { expires: 365, path: '/' });
+                localStorage.setItem("scoreboard", JSON.stringify(scoreboard_dic));
                 return;
             }
         }
@@ -150,12 +150,12 @@ function updateScoreboard()
     if((circle_number-2) >= 0)
     {
         scoreboard_dic.push([nick, (circle_number-2)]);
-        $.cookie('cookie', JSON.stringify(scoreboard_dic), { expires: 365, path: '/' });
+        localStorage.setItem("scoreboard", JSON.stringify(scoreboard_dic));
         //console.log("nie bylo");
     }
-    if($.cookie('cookie') != undefined)
+    if(localStorage.getItem("scoreboard") != null)
     {
-        scoreboard_dic = JSON.parse($.cookie('cookie'));
+        scoreboard_dic = JSON.parse(localStorage.getItem("scoreboard"));
     }
 }
 
