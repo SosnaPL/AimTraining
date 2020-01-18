@@ -50,7 +50,6 @@ function onWebsiteLoad()
 onWebsiteLoad();
 scoreboard();
 
-
 function fixDpi() 
 {
     dpi = window.devicePixelRatio;
@@ -136,12 +135,12 @@ function updateScoreboard()
             {
                 scoreboard_dic[i][1] = (circle_number-2);
                 localStorage.setItem("scoreboard", JSON.stringify(scoreboard_dic));
-                //console.log("zastap nick");
+                //console.log("actual score is better");
                 return;
             }
             else
             {
-                //console.log("nie zastepuj");
+                //console.log("previous score wa better");
                 localStorage.setItem("scoreboard", JSON.stringify(scoreboard_dic));
                 return;
             }
@@ -151,7 +150,7 @@ function updateScoreboard()
     {
         scoreboard_dic.push([nick, (circle_number-2)]);
         localStorage.setItem("scoreboard", JSON.stringify(scoreboard_dic));
-        //console.log("nie bylo");
+        //console.log("there is no score with this nickname");
     }
     if(localStorage.getItem("scoreboard") != null)
     {
@@ -183,7 +182,7 @@ function scoreboard()
     listScoreboard();
 }
 
-function Lost(obj)
+function miss(obj)
 {
     obj.addEventListener('transitionend', fade = () => {
         obj.style.opacity = "0";
@@ -323,7 +322,7 @@ function first()
     first_circle.style.opacity = "1";
     first_circle.addEventListener("click", loop);
     //first_circle.addEventListener("mouseover", hoverCircle);
-    Lost(first_circle);
+    miss(first_circle);
 }
 
 function nextCircle()
@@ -335,7 +334,7 @@ function nextCircle()
     next_circle.style.opacity = "1";
     next_circle.addEventListener("click", loop);
     //next_circle.addEventListener("mouseover", hoverCircle);
-    Lost(next_circle);
+    miss(next_circle);
 }
 
 function loop()
