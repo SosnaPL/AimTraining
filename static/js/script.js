@@ -23,7 +23,6 @@ let next_circle_pos_y = 0;
 let last_hp_width = 0;
 let button_hide_change = true;
 
-
 hp = start_hp;
 hp_number.innerHTML = "HP: " + hp;
 
@@ -103,7 +102,6 @@ function hide()
             element.classList.remove("expandjs");
         });
     }
-
 }
 
 function settings(a)
