@@ -1,26 +1,28 @@
-var game = document.querySelector(".game");
-var button = document.querySelector("#play");
-var button_hide = document.querySelector("#hide");
-var container = document.querySelector(".all_container");
-var counter = document.querySelector(".points");
-var hp_container = document.querySelector(".hp");
-var hp_number = document.querySelector(".hp_number");
-var start_hp_holder = document.querySelector("#hp");
-var select = document.querySelectorAll("select");
-var start_hp = start_hp_holder.options[start_hp_holder.selectedIndex].value;
-var ul = document.querySelector("ul");
-var line = document.querySelector(".linia");
-var line2d = line.getContext("2d");
-var scoreboard_dic = [];
-var circle_number = 1;
-var hp = 0;
-var first_circle_pos_x = 0;
-var first_circle_pos_y = 0;
-var next_circle_pos_x = 0;
-var next_circle_pos_x = 0;
-var last_hp_width = 0;
-var button_hide_change = true;
-var mql = window.matchMedia('(max-width:1000px)');
+const game = document.querySelector(".game");
+const button = document.querySelector("#play");
+const button_hide = document.querySelector("#hide");
+const container = document.querySelector(".all_container");
+const counter = document.querySelector(".points");
+const hp_container = document.querySelector(".hp");
+const hp_number = document.querySelector(".hp_number");
+const start_hp_holder = document.querySelector("#hp");
+const select = document.querySelectorAll("select");
+const start_hp = start_hp_holder.options[start_hp_holder.selectedIndex].value;
+const ul = document.querySelector("ul");
+const line = document.querySelector(".linia");
+const line2d = line.getContext("2d");
+const mql = window.matchMedia('(max-width:1000px)');
+
+let scoreboard_dic = [];
+let circle_number = 1;
+let hp = 0;
+let first_circle_pos_x = 0;
+let first_circle_pos_y = 0;
+let next_circle_pos_x = 0;
+let next_circle_pos_y = 0;
+let last_hp_width = 0;
+let button_hide_change = true;
+
 
 hp = start_hp;
 hp_number.innerHTML = "HP: " + hp;
@@ -52,7 +54,7 @@ scoreboard();
 
 function fixDpi() 
 {
-    dpi = window.devicePixelRatio;
+    const dpi = window.devicePixelRatio;
     let style = {
         height() {
             return +getComputedStyle(line).getPropertyValue('height').slice(0, -2);
@@ -76,8 +78,8 @@ function getRandomInt(min, max)
 
 function hide()
 {
-    hide_elems = document.querySelectorAll(".hide");
-    expand_elems = document.querySelectorAll(".expand");
+    const hide_elems = document.querySelectorAll(".hide");
+    const expand_elems = document.querySelectorAll(".expand");
 
     if(button_hide_change)
     {
@@ -108,12 +110,12 @@ function settings(a)
 {
     if(a == "ar")
     {
-        ar = document.querySelector("#ar");
+        const ar = document.querySelector("#ar");
         return ar.options[ar.selectedIndex].value;
     }
     else if(a == "cs")
     {
-        cs = document.querySelector("#cs");
+        const cs = document.querySelector("#cs");
         return cs.options[cs.selectedIndex].value;
     }
 }
@@ -125,7 +127,7 @@ function countPoints()
 
 function updateScoreboard()
 {
-    nick = document.getElementById("nick").value;
+    const nick = document.getElementById("nick").value;
     //console.log(scoreboard_dic.length);
     for(i = 0; i < scoreboard_dic.length; i++)
     {
@@ -160,12 +162,12 @@ function updateScoreboard()
 
 function listScoreboard()
 {
-    all_li = document.querySelectorAll("li");
+    const all_li = document.querySelectorAll("li");
     all_li.forEach(element => {
         element.remove();
     });
     scoreboard_dic.forEach(element => {
-        next_li = document.createElement("li");
+        const next_li = document.createElement("li");
         next_li.innerHTML = element[0] + ": " + element[1];
         ul.appendChild(next_li);
     });
@@ -220,8 +222,8 @@ function miss(obj)
 
 function createCircle(obj)
 {
-    ar = settings("ar");
-    cs = settings("cs");
+    const ar = settings("ar");
+    const cs = settings("cs");
     obj.classList.add("circle");
     obj.innerHTML = circle_number;
     obj.style.transition = "opacity "+ ar +"s ease-in-out";
@@ -237,12 +239,12 @@ function createCircle(obj)
 
 function getRandomPosition(obj)
 {
-    cs = settings("cs");
-    x = (cs/50)*7;
-    y = 100 - ((cs/50)*7);
+    const cs = settings("cs");
+    let x = (cs/50)*7;
+    let y = 100 - ((cs/50)*7);
     //console.log(x + " " + y)
-    margin_top = getRandomInt(x, y);
-    margin_left = getRandomInt(x, y);
+    let margin_top = getRandomInt(x, y);
+    let margin_left = getRandomInt(x, y);
     obj.style.top = margin_top + "%";
     obj.style.left = margin_left + "%";
 }
@@ -263,23 +265,23 @@ function gameReset()
     first_circle_pos_x = 0;
     first_circle_pos_y = 0;
     next_circle_pos_x = 0;
-    next_circle_pos_x = 0;
+    next_circle_pos_y = 0;
     hp_number.innerHTML = "HP: " + hp;
     counter.innerHTML = "POINTS COUNTER: 0";
 }
 
 function removeCircle()
 {
-    circle = document.querySelector(".circle");
+    const circle = document.querySelector(".circle");
     circle.remove();
 }
 
 function cordsCircle(obj)
 {
     fixDpi();
-    resp = settings("cs");
-    next_circle_pos_x = obj.offsetLeft + resp/2;
-    next_circle_pos_y = obj.offsetTop + resp/2;
+    const cs = settings("cs");
+    next_circle_pos_x = obj.offsetLeft + cs/2;
+    next_circle_pos_y = obj.offsetTop + cs/2;
     //console.log("second: " + next_circle_pos_x + " " + next_circle_pos_y);
     if (first_circle_pos_x > 0 && first_circle_pos_y > 0) 
     {
@@ -297,8 +299,8 @@ function cordsCircle(obj)
         });
     }
     //console.log("first: " + first_circle_pos_x + " " + first_circle_pos_y);
-    first_circle_pos_x = obj.offsetLeft + resp/2;
-    first_circle_pos_y = obj.offsetTop + resp/2;
+    first_circle_pos_x = obj.offsetLeft + cs/2;
+    first_circle_pos_y = obj.offsetTop + cs/2;
 }
 
 function hoverCircle(obj)
@@ -316,7 +318,7 @@ function first()
 {
     gameReset();
     game.style.cursor= "url(static/imgs/cursor.png) 25 25, auto"
-    first_circle = document.createElement("div");
+    const first_circle = document.createElement("div");
     createCircle(first_circle);
     window.getComputedStyle(first_circle).opacity;
     first_circle.style.opacity = "1";
@@ -327,7 +329,7 @@ function first()
 
 function nextCircle()
 {
-    next_circle = document.createElement("div");
+    const next_circle = document.createElement("div");
     getRandomPosition(next_circle);
     createCircle(next_circle);
     window.getComputedStyle(next_circle).opacity;
